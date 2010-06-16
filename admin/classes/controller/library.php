@@ -23,10 +23,8 @@ class Controller_Library extends Controller
 		$ordering = $this->request->param('ordering', 'asc');
 		$table = $this->request->param('table', 'name');
 		
-		$authors = Jelly::select('author')
-					->order_by($table, $ordering)
-					->execute();
-		
+		$authors = DB::select(array('library_author_id', 'id'), 'name')->from('library_authors')->as_object()->execute();
+
 		$this->request->response = View::factory('authors/list')
 			->set('authors', $authors)
 			->set('ordering', $ordering)
