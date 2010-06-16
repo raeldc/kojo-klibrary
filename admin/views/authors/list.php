@@ -14,6 +14,9 @@
 				<th width="5">
 					<?php echo "#"; ?>
 				</th>
+				<th width="20">
+					<input type="checkbox" name="toggle" value="" onclick="checkAll(<?echo $authors->count(); ?>);" />
+				</th>
 				<th>
 					<?php 
 					// First parameter should be the current ordering
@@ -28,6 +31,9 @@
 			<tr class="<?php echo 'row'.$m; ?>">
 				<td align="center">
 					<?php echo $i + 1; ?>
+				</td>
+				<td align="center">
+					<?php echo JHtml::_('grid.id', $i, $author->id); ?>
 				</td>
 				<td>
 					<?php $url = Route::get('default')->uri(array(

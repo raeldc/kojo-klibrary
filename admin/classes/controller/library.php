@@ -115,8 +115,22 @@ class Controller_Library extends Controller
 				);
 				$this->request->redirect($redirect);
 			break;
+
 			case 'save':
 				$item->set($_POST)->save();
+				$this->request->redirect($redirect);
+			break;
+
+			case 'cancel':
+				$this->request->redirect($redirect);
+			break;
+			
+			case 'delete':
+				if ($ids = Arr::get($_POST, 'cid', NULL)) 
+				{
+					$items = Jelly::delete($item)->where(':primary_key', 'IN', $ids)->execute();
+				}
+				
 				$this->request->redirect($redirect);
 			break;
 			
@@ -125,10 +139,6 @@ class Controller_Library extends Controller
 				{
 					$this->request->redirect($redirect);
 				}
-			break;
-			
-			case 'cancel':
-				$this->request->redirect($redirect);
 			break;
 		}
 		
