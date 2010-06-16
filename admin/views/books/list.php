@@ -2,9 +2,8 @@
 
 <?php
 	$form_url = Route::get('default')->uri(array(
-		'action' => 'books'
+		'action' => 'book'
 	));
-
 ?>
 
 <form action="<?php echo HTML::uri($form_url);?>" method="post" name="adminForm">
@@ -39,6 +38,7 @@
 				<td>
 					<?php $url = Route::get('default')->uri(array(
 						'action' => 'book',
+						'task' => 'edit',
 						'id' => $book->id,
 					)); ?>
 					<?php echo HTML::anchor($url, $book->title); ?>
@@ -70,5 +70,6 @@
 		</tfoot>
 	</table>
 	<input type="hidden" name="task" value="" />
+	<input type="hidden" name="action" value="book" />
 	<input type="hidden" name="boxchecked" value="0" />
 </form>

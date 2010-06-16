@@ -32,6 +32,7 @@
 				<td>
 					<?php $url = Route::get('default')->uri(array(
 						'action' => 'author',
+						'task' => 'edit',
 						'id' => $author->id,
 					)); ?>
 					<?php echo HTML::anchor($url, $author->name); ?>
@@ -57,5 +58,6 @@
 		</tfoot>
 	</table>
 	<input type="hidden" name="task" value="" />
+	<input type="hidden" name="action" value="author" />
 	<input type="hidden" name="boxchecked" value="0" />
 </form>
