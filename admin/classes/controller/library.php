@@ -91,7 +91,7 @@ class Controller_Library extends Controller
 			->render();
 	}
 	
-	public function submit($task, $id, $type)
+	protected function submit($task, $id, $type)
 	{
 		$item = Jelly::select($type, $id);
 		
