@@ -15,20 +15,13 @@
 		<filename>index.html</filename>
 		<filename>klibrary.php</filename>
 	</files>
-	
+
 	<!-- Install Database Section -->
 	<install>
 		<sql>
 			<file charset="utf8" driver="mysql">install/install.mysql.utf.sql</file>
 		</sql>
 	</install>
-
-	<!-- Uninstall Database Section -->
-	<uninstall>
-		<sql>
-			<file charset="utf8" driver="mysql">install/uninstall.mysql.utf.sql</file>
-		</sql>
-	</uninstall>
 	
 	<administration>
 		<menu img="class:weblinks">KoJo - KLibrary</menu>
@@ -38,8 +31,7 @@
 			<filename>klibrary.php</filename>
 			<folder>classes</folder>
 			<folder>views</folder>
-			<folder>messages</folder>
-			<folder>config</folder>
+			<folder>install</folder>
 		</files>
 	</administration>
 </extension>
