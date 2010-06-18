@@ -1,11 +1,6 @@
 <?php defined('SYSPATH') or die('404 Not Found.');?>
 
-<?php
-	$form_url = Route::get('default')->uri(array(
-		'action' => 'book'
-	));
-?>
-<form action="<?php echo HTML::uri($form_url);?>" method="post" name="adminForm">
+<form action="<?php echo HTML::uri('action=book');?>" method="post" name="adminForm">
 
 	<fieldset>
 		<legend><?php echo JText::_('Book'); ?></legend>

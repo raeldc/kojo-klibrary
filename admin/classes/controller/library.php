@@ -1,16 +1,16 @@
 <?php defined('SYSPATH') or die('404 Not Found.');
 
-class Controller_Library extends Controller 
+class ComKLibrary_Admin_Controller_Library extends Controller 
 {	
 	public function action_books()
-	{	
+	{
 		$ordering = $this->request->param('ordering', 'asc');
 		$table = $this->request->param('table', 'title');
 		
 		$books = Jelly::select('book')
 					->order_by($table, $ordering)
 					->execute();
-		
+
 		$this->request->response = View::factory('books/list')
 			->set('books', $books)
 			->set('ordering', $ordering)
@@ -95,24 +95,20 @@ class Controller_Library extends Controller
 	{
 		$item = Jelly::select($type, $id);
 		
-		$redirect = HTML::uri(
-			Route::get('default')->uri(array(
-				'action' => Inflector::plural($type)
-			))
-		);
+		$redirect = HTML::uri(array(
+			'action' => Inflector::plural($type)
+		));
 		
 		switch ($task) 
 		{
 			case 'apply':
 				$item->set($_POST)->save();
 				
-				$redirect = HTML::uri(
-					Route::get('default')->uri(array(
+				$redirect = HTML::uri(array(
 						'action' => $type,
 						'task' => 'edit',
 						'id' => $item->id,
-					))
-				);
+					));
 				$this->request->redirect($redirect);
 			break;
 
@@ -166,16 +162,16 @@ class Controller_Library extends Controller
 				JToolBarHelper::deleteList('Are you sure you want to delete these '.ucfirst($action).'?', 'delete');
 				JToolBarHelper::addNew();
 				
-				$views =  array(
+				$actions =  array(
 					'books' 			=> 'Books',
 					'authors' 			=> 'Authors',
 					'genres' 			=> 'Genres'
 			        );
 
-				foreach($views as $view => $title)
+				foreach($actions as $action => $title)
 				{
-					$active = ($this->request->action == $view);
-					JSubMenuHelper::addEntry(JText::_($title), HTML::uri($view), $active);
+					$active = ($this->request->action == $action);
+					JSubMenuHelper::addEntry(JText::_($title), HTML::uri(array('action' => $action)), $active);
 				}
 			break;
 		}

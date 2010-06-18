@@ -1,12 +1,6 @@
 <?php defined('SYSPATH') or die('404 Not Found.');?>
 
-<?php
-	$form_url = Route::get('default')->uri(array(
-		'action' => 'authors'
-	));
-?>
-
-<form action="<?php echo HTML::uri($form_url);?>" method="post" name="adminForm">
+<form action="<?php echo HTML::uri(array('controller' => 'library', 'action' => 'author'));?>" method="post" name="adminForm">
 
 	<table class="adminlist" style="clear: both;">
 		<thead>
@@ -36,11 +30,7 @@
 					<?php echo JHtml::_('grid.id', $i, $author->id); ?>
 				</td>
 				<td>
-					<?php $url = Route::get('default')->uri(array(
-						'action' => 'author',
-						'task' => 'edit',
-						'id' => $author->id,
-					)); ?>
+					<?php $url = array('action' => 'author', 'task' => 'edit', 'id' => $author->id); ?>
 					<?php echo HTML::anchor($url, $author->name); ?>
 				</td>	
 			</tr>

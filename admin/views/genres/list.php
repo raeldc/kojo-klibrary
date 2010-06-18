@@ -1,12 +1,6 @@
 <?php defined('SYSPATH') or die('404 Not Found.');?>
 
-<?php
-	$form_url = Route::get('default')->uri(array(
-		'action' => 'genres'
-	));
-?>
-
-<form action="<?php echo HTML::uri($form_url);?>" method="post" name="adminForm">
+<form action="<?php echo HTML::uri(array('action' => 'genre'));?>" method="post" name="adminForm">
 
 	<table class="adminlist" style="clear: both;">
 		<thead>
@@ -36,11 +30,7 @@
 					<?php echo JHtml::_('grid.id', $i, $genre->id); ?>
 				</td>
 				<td>
-					<?php $url = Route::get('default')->uri(array(
-						'action' => 'genre',
-						'task' => 'edit',
-						'id' => $genre->id,
-					)); ?>
+					<?php $url = array('action' => 'genre', 'task' => 'edit', 'id' => $genre->id,); ?>
 					<?php echo HTML::anchor($url, $genre->name); ?>
 				</td>	
 			</tr>
