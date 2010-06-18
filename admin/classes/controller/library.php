@@ -7,6 +7,8 @@ class ComKLibrary_Admin_Controller_Library extends Controller
 		$ordering = $this->request->param('ordering', 'asc');
 		$table = $this->request->param('table', 'title');
 		
+		echo Kohana::debug((string) Jelly::select('book'));
+
 		$books = Jelly::select('book')
 					->order_by($table, $ordering)
 					->execute();

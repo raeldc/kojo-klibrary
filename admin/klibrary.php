@@ -14,4 +14,4 @@ echo Request::instance()
 	->execute()
 	->response;
 
-JFactory::getApplication()->triggerEvent('ExitKojo', JPATH_COMPONENT_SITE);
+JFactory::getApplication()->triggerEvent('ExitKojo');

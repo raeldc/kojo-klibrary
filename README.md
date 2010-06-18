@@ -83,7 +83,7 @@ But of course Nooku controllers extend a parent Controller that does most of the
 At this point I should explain that a KoJo controller does what a View+Controller do in Nooku or Joomla. In KoJo, the Controller and the View is combined into one controller. 
 The View in KoJo is the same as a Template in Nooku or Joomla.
 
-The controller, `library.php` can be found inside **/classes/controller**. It is named `Controller_Library` and extends a parent `Controller`. Here you have a glimpse the practical naming convention in KoJo which will be explained later.
+The controller, `library.php` can be found inside **/classes/controller**. It is named `Controller_Library` and extends a parent `Controller`. Here you have a glimpse the practical naming convention in KoJo which will be explained in another article.
 
 Now let's take a look at the method inside the controller that lists all the books from the database. 
 
@@ -227,30 +227,36 @@ If you're interested in the development of KoJo, just follow project on [GitHub]
 
 Remember that KoJo is just a proof of concept. But if the Joomla community wants it to grow, it will!
 
+[Read More about KoJo](http://github.com/raeldc/kojo-project/).
+
 Performance Summary
 ===================
 
 **com_klibrary**
 
+	Total Memory Usage with Joomla: 6MB
 	Joomla 1.6 Only: 4.0MB
-	After Initializing Kohana: 4.4MB
-	After Displaying the View: 6MB
+	After Initializing KoJo: 4.45MB
 	Total Memory Usage without Joomla: 2MB
 	Total Memory Usage without Joomla and Jelly: 1.3MB
 	Total Execution Time: 0.127 seconds
 		
 **com_library**
 
-	Joomla 1.5 Only: 5.3MB
-	Total Memory Usage: 6.7MB
+	Total Memory Usage with Joomla: 6.7MB
+	Joomla 1.5 Only: 4.85MB
 	Initializing Koowa: 5.3MB
 	Total Memory Usage without Joomla: 1.4MB
 	Total Queries: 13
 	Total Execution Time: 0.217 seconds
-	
 
-Note: A component written in KoJo uses 600kb more memory than Nooku if the powerful Jelly ORM is used. However, if the default KoJo Database is used it will use 100kb less. 
 
-There are other ORMs available for KoJo, but we haven't tested them yet.
+Note: A component written in KoJo uses 600kb more memory than Nooku if the powerful Jelly ORM is used. However, if the default KoJo Database is used it will use 100kb less than Nooku. 
+
+There are other ORMs available for KoJo, but I haven't tested them yet.
+
+It's interesting to note that Koowa takes 450KB on initialization. Koowa is initialized on every Joomla page as of version 0.6. KoJo 0.1 uses 430KB on initialization. It's not initialized on every Joomla page outside KoJo application.
+
+I wonder what would happen if I optimize KoJo for Joomla? I think it will get even lighter.
 
 The execution time is not yet properly tested since the 2 are using different platforms, J! 1.5, and 1.6.
