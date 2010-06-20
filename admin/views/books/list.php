@@ -40,16 +40,16 @@
 					<?php echo HTML::anchor($url, $book->title); ?>
 				</td>
 				<td>
-						<?php echo $book->author->name; ?>
+						<?php echo $book->author_name; ?>
 				</td>
 				<td>
-						<?php echo $book->genre->name; ?>
+						<?php echo $book->genre_name; ?>
 				</td>		
 			</tr>
 			<?php $i = $i + 1; $m = (1 - $m); ?>
 			<?php endforeach; ?>
 
-			<?php if ( ! $books->count()) : ?>
+			<?php if ( ! count($books)) : ?>
 			<tr>
 				<td colspan="8" align="center">
 					<?php echo JText::_('No items found'); ?>

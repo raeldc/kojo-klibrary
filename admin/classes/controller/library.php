@@ -9,7 +9,7 @@ class ComKLibrary_Admin_Controller_Library extends Controller
 		
 		$books = ORM::factory('book')
 					->order_by($table, $ordering)
-					->find_all();
+					->fetch_all();
 
 		$this->request->response = View::factory('books/list')
 			->set('books', $books)

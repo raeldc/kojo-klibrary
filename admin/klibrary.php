@@ -15,4 +15,6 @@ echo Request::instance()
 	->execute()
 	->response;
 
+echo View::factory('profiler/stats')->render();
+
 JFactory::getApplication()->triggerEvent('ExitKojo');
