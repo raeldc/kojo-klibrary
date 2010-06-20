@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('404 Not Found.');
 
-class Model_Author extends Jelly_Model
+class ComKLibrary_Admin_Model_Author extends Jelly_Model
 {
 	public static function initialize(Jelly_Meta $meta)
 	{

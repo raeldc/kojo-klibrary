@@ -7,11 +7,9 @@ class ComKLibrary_Admin_Controller_Library extends Controller
 		$ordering = $this->request->param('ordering', 'asc');
 		$table = $this->request->param('table', 'title');
 		
-		echo Kohana::debug((string) Jelly::select('book'));
-
-		$books = Jelly::select('book')
+		$books = ORM::factory('book')
 					->order_by($table, $ordering)
-					->execute();
+					->find_all();
 
 		$this->request->response = View::factory('books/list')
 			->set('books', $books)
@@ -40,7 +38,7 @@ class ComKLibrary_Admin_Controller_Library extends Controller
 	{
 		$ordering = $this->request->param('ordering', 'asc');
 		$table = $this->request->param('table', 'name');
-		
+
 		$genres = Jelly::select('genre')
 					->order_by($table, $ordering)
 					->execute();

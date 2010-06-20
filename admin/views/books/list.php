@@ -9,7 +9,7 @@
 					<?php echo "#"; ?>
 				</th>
 				<th width="20">
-					<input type="checkbox" name="toggle" value="" onclick="checkAll(<?echo $books->count(); ?>);" />
+					<input type="checkbox" name="toggle" value="" onclick="checkAll(<?echo count($books); ?>);" />
 				</th>
 				<th>
 					<?php 
