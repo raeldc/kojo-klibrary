@@ -6,13 +6,9 @@ class ComKLibrary_Admin_Model_Author extends Jelly_Model
 	{
 		$meta->table('library_authors')
 			->fields(array(
-				'id' => new Field_Primary(array(
-					'column' => 'library_author_id'
-				)),
+				'id' => new Field_Primary,
 				'name' => new Field_String,
-				'books' => new Field_HasMany(array(
-					'foreign' => 'books.library_book_id'
-				))
+				'books' => new Field_HasMany
 			));
 	}
 }

@@ -6,18 +6,10 @@ class ComKLibrary_Admin_Model_Book extends Jelly_Model
 	{
 		$meta->table('library_books')
 			->fields(array(
-				'id' => new Field_Primary(array(
-					'column' => 'library_book_id'
-				)),
+				'id' => new Field_Primary,
 				'title' => new Field_String,
-				'author' => new Field_BelongsTo(array(
-					'column' => 'library_author_id',
-					'foreign' => 'author.library_author_id',
-				)),
-				'genre' => new Field_BelongsTo(array(
-					'column' => 'library_genre_id',
-					'foreign' => 'genre.library_genre_id',
-				)),
+				'author' => new Field_BelongsTo,
+				'genre' => new Field_BelongsTo,
 			));
 	}
 }

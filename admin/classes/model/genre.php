@@ -6,13 +6,9 @@ class ComKLibrary_Admin_Model_Genre extends Jelly_Model
 	{
 		$meta->table('library_genres')
 			->fields(array(
-				'id' => new Field_Primary(array(
-					'column' => 'library_genre_id'
-				)),
+				'id' => new Field_Primary,
 				'name' => new Field_String,
-				'books' => new Field_HasMany(array(
-					'foreign' => 'books.library_book_id'
-				))
+				'books' => new Field_HasMany
 			));
 	}
 }
