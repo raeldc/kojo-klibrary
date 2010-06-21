@@ -5,16 +5,11 @@ KoJo is not a competition to Nooku, it's an alternative. It has a different appr
 
 Nooku is revolutionary to Joomla. It is as it claims to be: it reduces the required code to create a component, and it provides many tools that makes development easier and faster.
 
-But what if we can reduce it further? What if there is another approach that is just as powerful, but simpler and easier to understand? That's what KoJo is aiming for. 
-KoJo is a "proof of concept" for now. I'm awaiting feedback from the community. Maybe this proof of concept is worth pushing forward into a full blown project.
+Nooku is now at 0.67 and is on the fast track to 0.7. If you're looking for a framework that does many things for you, the Nooku would be right for you. 
 
-Nooku provides an example Joomla 1.5 component named `com_library`. As a proof of concept, I rewrote it using KoJo and found inspiring results!
+KoJo is a bare minimum framework it does almost nothing for you. But you can use a rich pool of libraries that are provided by the Kohana community. 
 
-Using KoJo, I was able rewrite `com_library` using only 11 essential files, with 57 KB of code. Nooku's `com_library` has 21 files taking 94KB. That's 50% less files, and 40% less code size!
-
-If I remove the redundancies, I can even reduce `com_library` to 60% less code. The redundancies in my code only serves readability. 
-
-I named the component `com_klibrary` and it runs on Jooml 1.6(beta 3) administration backend. Nooku's `com_library` runs on Joomla 1.5.
+In KoJo, you have room to implement your own style of programming.
 
 Initialization
 --------------
@@ -22,57 +17,23 @@ The following is a line by line explanation but the complete code is [here](http
 
 This is how you initialize the KoJo Framework in the gateway file of your component. 
 
-	(JFactory::getApplication()->triggerEvent('InitializeKoJo', JPATH_COMPONENT)) or die('Please install or enable the KoJo Framework Plugin');
+	(JFactory::getApplication()->triggerEvent('InitializeKoJo') or die('Please install or enable the KoJo Framework Plugin');
 
-After that, you can now initialize the Routing. Routing allows you to interpret a URL segment. It has tremendous flexibility that allows you to format your urls almost anyway you want it using Regex.
-
-*Note: The Routing system of KoJo is a very powerful stuff. It's OK if you don't understand it for now. But once you understand it, you'll see why this is better than the* `router.php` 
-*of Joomla. If you are familiar with Django, then you can understand the routing of KoJo easier.*
-
-	Route::set('default', '<action>(/<task>)(/<id>)(:<ordering>(:<table>))', array(
-		'action' => '[a-zA-Z]*',
-		// As you can see here, I can control which tasks can be accepted
-		'task' => 'add|edit|delete|save|apply|cancel', 
-		'ordering' => 'asc|desc',
-		'table' => '[a-zA-Z]*',
-	))
-	->defaults(array(
-		// These are the default values
-		'controller' => 'library',
-		'action'     => 'books',
-	));
-
-You don't need to build a complicated router in Joomla's `router.php`! Everything can be controlled here!
-
-Because Joomla's admin backend doesn't have SEF urls, the route is passed through the `$_GET['route'] or $_GET['view']` if `$_GET['route']` doesn't exist.
-
-	$route = JRequest::getVar('route', JRequest::getVar('view', 'books'));
-	
-	// If there is a $_POST, try to translate the post values into a route.
-	if ($_POST) 
-	{
-		$route = Route::get('default')->uri($_POST);
-	}
-
-We can also generate a route based on the `$_POST`. This is useful for adminForm submissions in the Joomla admin backend. 
-
-The default route is simply `books`.  If our component is accessed inside Joomla, the url is something like this: `http://localhost/index.php?option=com_klibrary&route=books`. 
-If KoJo is running outside Joomla(yes you can use the framework outside Joomla!), the url will be like this: `http://localhost/books`. If all the values in the route are filled, the url will look like this:
-`http://localhost/books/list:asc:title` and `http://localhost/index.php?option=com_klibrary&route=books/list:asc:title` inside Joomla. 
-
-No matter what the url is, the Route declaration makes sure that only the `library` controller is used. If our application has more controllers, then we can make modify the Route to accept other controllers from the url.
-
-Now that we know the Route, we can go to the execution of the component. You do it like this:
+After that, you issue a request. The request is at the core of Kohana because it's an HMVC(Hierarchical Model View Controller) framework. 
 
 	echo Request::factory($route)
+		->defaults(array(
+			'controller' => 'library',
+			'action' = 'books'
+		))
 		->execute()
 		->response;
 
-The Request class calls and executes a controller based on the route. It returns a text response. You can do whatever you want with this text before you render it for display.
+The Request class calls and executes a controller based on the route or based on the defaults you set. It returns a text response. You can do whatever you want with this text before you render it for display.
 
-Now just de-initialize KoJo to avoid conflicts.
+After the request, just de-initialize KoJo to avoid conflicts.
 
-	JFactory::getApplication()->triggerEvent('ExitKojo', JPATH_COMPONENT_SITE);
+	JFactory::getApplication()->triggerEvent('ExitKojo');
 
 The "library.php" controller
 ------------------------------
