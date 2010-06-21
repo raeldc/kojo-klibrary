@@ -23,7 +23,7 @@ This is how you initialize the KoJo Framework in the gateway file of your compon
 
 After that, you issue a request. The request is at the core of Kohana because it's an HMVC(Hierarchical Model View Controller) framework. 
 
-	echo Request::factory($route)
+	echo Request::factory()
 		->defaults(array(
 			'controller' => 'library',
 			'action' = 'books'
@@ -31,7 +31,7 @@ After that, you issue a request. The request is at the core of Kohana because it
 		->execute()
 		->response;
 
-The Request class calls and executes a controller based on the route or based on the defaults you set. It returns a text response. You can do whatever you want with this text before you render it for display.
+The Request class calls and executes a controller based on the url or based on the defaults you set. It returns a text response. You can do whatever you want with this text before you render it for display.
 
 After the request, just de-initialize KoJo to avoid conflicts.
 
@@ -68,15 +68,12 @@ Now let's take a look at the method inside the controller that lists all the boo
 		}
 	}
 
-The Route tells the request which controller and method to execute. In this case the default is the action "books", which would mean that it will execute the controller method `action_books`. 
-
-All actions that can be accessed by the request is prepended by `action_`. The default route is `books/list:asc:title`. Our route declaration is `<action>(/<task>)(/<id>)(:<ordering>(:<table>))`.
-
-You don't need to understand it for now, but suffice it to say that the first segment is the `action`(books), the second segment is the `task`(list), the 3rd is the `ordering`(asc), and 4th is `table`(title). 
+The Request determines which controller and method to execute based on the URL or based on the defaults that you assign. In this case the default is the action "books", which would mean that it will execute the controller method `action_books`.
+All actions that can be accessed by the request is prepended by `action_`. 
 
 Let's dissect `action_books` line by line. 
 	
-**We get the url segments by using $this->request->param('paramter', [default])**
+**We get the url parameters by using $this->request->param('paramter', [default])**
 
 	$ordering = $this->request->param('ordering', 'asc');
 	$table = $this->request->param('table', 'title');
