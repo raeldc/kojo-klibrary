@@ -9,7 +9,9 @@ Nooku is now at 0.67 and is on the fast track to 0.7. If you're looking for a fr
 
 KoJo is a bare minimum framework it does almost nothing for you. But you can use a rich pool of libraries that are provided by the Kohana community. 
 
-In KoJo, you have room to implement your own style of programming.
+In KoJo, you have room to implement your own style of programming. If in your experience with frameworks, you usually end up doing custom code that is out of the "frame", then KoJo would be just right for you.
+
+**KoJo gets out of the developer's way but assists them where it matters.**
 
 Initialization
 --------------
