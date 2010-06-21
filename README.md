@@ -7,7 +7,7 @@ Nooku is revolutionary to Joomla. It is as it claims to be: it reduces the requi
 
 Nooku is now at 0.67 and is on the fast track to 0.7. If you're looking for a framework that does many things for you, the Nooku would be right for you. 
 
-KoJo is a bare minimum framework it does almost nothing for you. But you can use a rich pool of libraries that are provided by the Kohana community. 
+KoJo is a bare minimum framework it does almost nothing for you. But you can use a rich pool of libraries that are provided by the OpenSource community. 
 
 In KoJo, you have room to implement your own style of programming. If in your experience with frameworks, you usually end up doing custom code that is out of the "frame", then KoJo would be just right for you.
 
@@ -23,7 +23,7 @@ This is how you initialize the KoJo Framework in the gateway file of your compon
 
 After that, you issue a request. The request is at the core of Kohana because it's an HMVC(Hierarchical Model View Controller) framework. 
 
-	echo Request::factory()
+	echo Request::instance()
 		->defaults(array(
 			'controller' => 'library',
 			'action' = 'books'
