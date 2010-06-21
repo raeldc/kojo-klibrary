@@ -5,9 +5,9 @@ KoJo is not a competition to Nooku, it's an alternative. It has a different appr
 
 Nooku is revolutionary to Joomla. It is as it claims to be: it reduces the required code to create a component, and it provides many tools that makes development easier and faster.
 
-Nooku is now at 0.67 and is on the fast track to 0.7. If you're looking for a framework that does many things for you, the Nooku would be right for you. 
+Nooku is now at 0.67 and is on the fast track to 0.7. If you're looking for a framework that does many things for you, then Nooku would be right for you. 
 
-KoJo is a bare minimum framework it does almost nothing for you. But you can use a rich pool of libraries that are provided by the OpenSource community. 
+KoJo is a bare minimum framework, it does almost nothing for you. But you can use a rich pool of libraries that are provided by the OpenSource community. 
 
 In KoJo, you have room to implement your own style of programming. If in your experience with frameworks, you usually end up doing custom code that is out of the "frame", then KoJo would be just right for you.
 
@@ -45,7 +45,7 @@ Now let's go to the Controller. Based on the Request call, KoJo will always run 
 At this point I should explain that a KoJo controller does what a View+Controller do in Nooku or Joomla. In KoJo, the Controller and the View is combined into one controller. 
 The View in KoJo is just a class that accepts variables and outputs a PHP. You can overload this View class so you can implement your own.
 
-The controller, `library.php` can be found inside **/classes/controller**. It is named `Controller_Library` and extends a parent `Controller`. Here you have a glimpse the practical naming convention in KoJo which will be explained in another article.
+The controller, `library.php` can be found inside **/classes/controller**. It is named `Controller_Library` and extends a parent `Controller`. Here you have a glimpse the practical naming convention in KoJo which is explained by the end of this introduction.
 
 Now let's take a look at the method inside the controller that lists all the books from the database. 
 
@@ -97,6 +97,9 @@ You can check the view [here](http://github.com/raeldc/kojo-klibrary/blob/master
 Also notice that by using `$book->author->name`, we are able to access the author to which the book belongs without issuing another query or declaring an sql join. More on models in the next section.
 
 *Note: For the sake of brevity, pagination wasn't added yet. But it's really easy to implement. You are not tied to Joomla's pagination. You can build your own or use KoJo's pagination system.*
+
+*Also avoid the pitfall of creating a [fat controller](http://www.survivethedeepend.com/zendframeworkbook/en/1.0/the.model#zfbook.the.model.the.fat.stupid.ugly.controller). Jelly ORM helps you offset the load from the controller by providing a Builder.*
+
 
 Declaring Models through the ORM
 --------------------------------
@@ -196,7 +199,7 @@ Coming Soon...
 
 
 There you go! Hopefully this simple piece of explanation is enough to show you the power and flexibility of KoJo. There are still a lot of good things about it but I can't discuss everything. 
-You can download the latest demo installable packages [here](http://github.com/raeldc/kojo-project/tree/master/packages/). 
+You can download the latest demo installable packages [here](http://github.com/raeldc/kojo-project/downloads). 
 
 If you're interested in the development of KoJo, just follow project on [GitHub](http://github.com/raeldc/kojo-project) or follow me on [Twitter](http://twitter.com/raeldc). 
 
