@@ -43,13 +43,13 @@ The "library.php" controller
 Now let's go to the Controller. Based on the Request call, KoJo will always run the "library" controller. Everything related to the "library" can be found there.
 
 At this point I should explain that a KoJo controller does what a View+Controller do in Nooku or Joomla. In KoJo, the Controller and the View is combined into one controller. 
-The View in KoJo is the same as a Template in Nooku or Joomla.
+The View in KoJo is just a class that accepts variables and outputs a PHP. You can overload this View class so you can implement your own.
 
 The controller, `library.php` can be found inside **/classes/controller**. It is named `Controller_Library` and extends a parent `Controller`. Here you have a glimpse the practical naming convention in KoJo which will be explained in another article.
 
 Now let's take a look at the method inside the controller that lists all the books from the database. 
 
-	class Controller_Library extends Controller 
+	class ComKLibrary_Admin_Controller_Library extends Controller 
 	{
 		public function action_books()
 		{	
@@ -105,7 +105,7 @@ The last missing piece needed to run a KoJo application is the Jelly ORM. This i
 
 The Model is found at **/classes/model/book.php**. It is named `Model_Book` and it extends `Jelly_Model`. Do you now have an idea how KoJo's naming convention work? More on that subject later.
 
-	class Model_Book extends Jelly_Model
+	class ComKlibrary_Admin_Model_Book extends Jelly_Model
 	{
 		public static function initialize(Jelly_Meta $meta)
 		{
@@ -178,6 +178,22 @@ Your controller method can look something like this:
 			->set('genres', $genres)
 			->render();
 	}
+
+The Naming Convention
+---------------------
+
+A Class is usually named `ComExtensionName_ClassDirectory_Class` or `ComExtensionName_Admin_ClassDirectory_Class`. The first 3 letters can be `com`, `mod`, `plugin`. 
+This is to indicate the type of extension. After the extension type prefix is the extension name. 
+
+*	So `ComExtensionName_ClassDirectory_Class` will mean that the file where this class is located is at `/components/com_extensionname/classes/classdirectory/class.php`.
+*	`ComExtensionName_Admin_Class` loads `/administrator/components/com_extensionname/classes/class.php`.
+*	`ModExtensionName_ClassDirectory_Class` loads `/modules/mod_extensionname/classes/classdirectory/class.php`.
+
+Explanation of the Cascading File Sytem
+---------------------------------------
+
+Coming Soon...
+
 
 There you go! Hopefully this simple piece of explanation is enough to show you the power and flexibility of KoJo. There are still a lot of good things about it but I can't discuss everything. 
 You can download the latest demo installable packages [here](http://github.com/raeldc/kojo-project/tree/master/packages/). 
