@@ -11,7 +11,7 @@ KoJo is a bare minimum framework it does almost nothing for you. But you can use
 
 In KoJo, you have room to implement your own style of programming. If in your experience with frameworks, you usually end up doing custom code that is out of the "frame", then KoJo would be just right for you.
 
-**KoJo gets out of the developer's way but assists them where it matters.**
+> **KoJo gets out of the developer's way but assists them where it matters.**
 
 Initialization
 --------------
