@@ -38,8 +38,7 @@ After the request, just de-initialize KoJo to avoid conflicts.
 The "library.php" controller
 ------------------------------
 
-Now let's go to the Controller. Based on the route, KoJo will always run the "library" controller. Everything related to the "library" can be found there. Nooku has 3 controllers without code! 
-But of course Nooku controllers extend a parent Controller that does most of the job magically. 
+Now let's go to the Controller. Based on the Request call, KoJo will always run the "library" controller. Everything related to the "library" can be found there.
 
 At this point I should explain that a KoJo controller does what a View+Controller do in Nooku or Joomla. In KoJo, the Controller and the View is combined into one controller. 
 The View in KoJo is the same as a Template in Nooku or Joomla.
@@ -202,17 +201,8 @@ Performance Summary
 	Total Memory Usage without Joomla and Jelly: 1.3MB
 	Total Execution Time: 0.127 seconds
 		
-**com_library**
 
-	Total Memory Usage with Joomla: 6.7MB
-	Joomla 1.5 Only: 4.85MB
-	Initializing Koowa: 5.3MB
-	Total Memory Usage without Joomla: 1.4MB
-	Total Queries: 13
-	Total Execution Time: 0.217 seconds
-
-
-Note: A component written in KoJo uses 600kb more memory than Nooku if the powerful Jelly ORM is used. However, if the default KoJo Database is used it will use 100kb less than Nooku. 
+Note: 
 
 There are other ORMs available for KoJo, but I haven't tested them yet.
 
