@@ -1,17 +1,13 @@
-Comparing KoJo with Nooku
-=========================
+KoJo Simple Tutorial
+====================
 
-KoJo is not a competition to Nooku, it's an alternative. It has a different approach, so depending on how your brain is wired, you may appreciate the power and simplicity of KoJo a little bit more.
-
-Nooku is revolutionary to Joomla. It is as it claims to be: it reduces the required code to create a component, and it provides many tools that makes development easier and faster.
-
-Nooku is now at 0.67 and is on the fast track to 0.7. If you're looking for a framework that does many things for you, then Nooku would be right for you. 
-
-KoJo is a bare minimum framework, it does almost nothing for you. But you can use a rich pool of libraries that are provided by the OpenSource community. 
-
-In KoJo, you have room to implement your own style of programming. If in your experience with frameworks, you usually end up doing custom code that is out of the "frame", then KoJo would be just right for you.
+The philosophy of KoJo can be summed up in this statement: 
 
 > **KoJo gets out of the developer's way but assists them where it matters.**
+
+KoJo is not your baby sitter to assist you in implementing good practices in programming. 
+
+This Tutorial is the simplest way to use KoJo. Larger applications may require a stricter MVC compliance, and application of other design patterns which you are free to use or misuse within the KoJo Framework.
 
 Initialization
 --------------
@@ -185,8 +181,8 @@ Your controller method can look something like this:
 The Naming Convention
 ---------------------
 
-A Class is usually named `ComExtensionName_ClassDirectory_Class` or `ComExtensionName_Admin_ClassDirectory_Class`. The first 3 letters can be `com`, `mod`, `plugin`. 
-This is to indicate the type of extension. After the extension type prefix is the extension name. 
+A Class is usually named `ComExtensionName_ClassDirectory_Class` or `ComExtensionName_Admin_ClassDirectory_Class`. The first 3 letters can be `com`, `mod`, `plg`. 
+This is to indicate the type of Joomla extension you are calling. After the extension type prefix is the extension name. 
 
 *	So `ComExtensionName_ClassDirectory_Class` will mean that the file where this class is located is at `/components/com_extensionname/classes/classdirectory/class.php`.
 *	`ComExtensionName_Admin_Class` loads `/administrator/components/com_extensionname/classes/class.php`.
@@ -204,6 +200,20 @@ You can download the latest demo installable packages [here](http://github.com/r
 If you're interested in the development of KoJo, just follow project on [GitHub](http://github.com/raeldc/kojo-project) or follow me on [Twitter](http://twitter.com/raeldc). 
 
 Remember that KoJo is just a proof of concept. But if the Joomla community wants it to grow, it will!
+
+Comparing KoJo with Nooku
+=========================
+
+KoJo is not a competition to Nooku, it's an alternative. It has a different approach, so depending on how your brain is wired, you may appreciate the power and simplicity of KoJo a little bit more.
+
+Nooku is revolutionary to Joomla. It is as it claims to be: it reduces the required code to create a component, and it provides many tools that makes development easier and faster.
+
+Nooku is now at 0.67 and is on the fast track to 0.7. If you're looking for a framework that does many things for you, then Nooku would be right for you. 
+
+KoJo is a bare minimum framework, it does almost nothing for you. But you can use a rich pool of libraries that are provided by the OpenSource community. 
+
+In KoJo, you have room to implement your own style of programming. If in your experience with frameworks, you usually end up doing custom code that is out of the "frame", then KoJo would be just right for you.
+
 
 [Read More about KoJo](http://github.com/raeldc/kojo-project/).
 
