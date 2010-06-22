@@ -134,7 +134,7 @@ So by using Jelly ORM, we now know everything there is to know about a database 
 Creating and Editing Database Items
 -----------------------------------
 
-Here is a summary of how to use Jelly ORM in creating and saving items in the database. Note that this is not in the code of the existing package.
+Here is a summary of how to use Jelly ORM in creating and saving items in the database. Note that this is not in the code of the existing package
 
 Your controller method can look something like this:
 
