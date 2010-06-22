@@ -36,7 +36,7 @@ After the request, just de-initialize KoJo to avoid conflicts.
 The "library.php" controller
 ------------------------------
 
-Now let's go to the Controller. If you access `index.php?com_klibrary`, KoJo will run the "library" controller based on the Request call defaults. 
+Now let's go to the Controller. If you access `index.php?option=com_klibrary`, KoJo will run the "library" controller based on the Request call defaults. 
 If you access `index.php?option=com_klibrary&controller=foo`, the Request will look for the controller named `foo`. If it's not found, a fatar error will be thrown.
 
 At this point I should explain that a simple KoJo controller can do what a View+Controller do in Nooku or Joomla. You can implement your own View class to achieve more separation between the MVC triad. 
